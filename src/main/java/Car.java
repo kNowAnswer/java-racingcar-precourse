@@ -1,23 +1,29 @@
-public class Car {
-	private static final int STOP_MIN_NUM = 0;
-	private static final int STOP_MAX_NUM = 3;
-	private static final int GO_MIN_NUM = 4;
-	private static final int GO_MAX_NUM = 9;
-	private final int index;
-	private final int number;
+import java.util.ArrayList;
+import java.util.List;
 
-	public Car(int index, int number) {
-		this.index = index;
-		this.number = number;
+public class Car {
+	private final List<CarMovement> cars;
+
+	public Car(List<Integer> integers) {
+		this.cars = mapCars(integers);
 	}
 
-	public CarStatus getStatus() {
-		if (this.number >= STOP_MIN_NUM && this.number <= STOP_MAX_NUM) {
-			return CarStatus.STOP;
+	private List<CarMovement> mapCars(List<Integer> integers) {
+		List<CarMovement> cars = new ArrayList<>();
+		for (int i = 0; i < integers.size(); i++) {
+			cars.add(new CarMovement(i, integers.get(i)));
 		}
-		if (this.number >= GO_MIN_NUM && this.number <= GO_MAX_NUM) {
-			return CarStatus.GO;
+		return cars;
+	}
+
+	public RaceResult race() {
+		RaceResult raceResult = new RaceResult();
+
+		for (CarMovement car : this.cars) {
+			CarStatus carStatus = car.getStatus();
+			raceResult.report(carStatus);
 		}
-		return CarStatus.STOP;
+
+		return raceResult;
 	}
 }

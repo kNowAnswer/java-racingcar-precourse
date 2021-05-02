@@ -13,10 +13,10 @@ public class RaceResult {
 	}
 
 	public int getGoCount() {
-		return this.go;
+		return go;
 	}
 
 	public int getStopCount() {
-		return this.stop;
+		return stop;
 	}
 }
