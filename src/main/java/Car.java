@@ -3,9 +3,11 @@ public class Car {
 	private static final int STOP_MAX_NUM = 3;
 	private static final int GO_MIN_NUM = 4;
 	private static final int GO_MAX_NUM = 9;
+	private final int index;
 	private final int number;
 
-	public Car(int number) {
+	public Car(int index, int number) {
+		this.index = index;
 		this.number = number;
 	}
 
