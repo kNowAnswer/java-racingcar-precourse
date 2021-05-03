@@ -25,5 +25,6 @@
     1. ~~CarsTest 작성~~
     1. ~~RaceResults 작성~~
 1. 우승 확인
+    1. WinnerTest 작성
 1. 사용자 입력 받기
 1. 자동차 경주 시각화
