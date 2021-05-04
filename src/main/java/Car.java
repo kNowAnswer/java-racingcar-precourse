@@ -4,11 +4,11 @@ import java.util.List;
 public class Car {
 
 	private final String name;
-	private final List<CarMovement> cars;
+	private final List<CarMovement> carMovements;
 
 	public Car(String name, List<Integer> integers) {
 		this.name = name;
-		this.cars = mapCars(integers);
+		this.carMovements = mapCars(integers);
 	}
 
 	private List<CarMovement> mapCars(List<Integer> integers) {
@@ -20,17 +20,19 @@ public class Car {
 	}
 
 	public RaceResult race() {
-
-		RaceResult raceResult = new RaceResult();
-		for (CarMovement car : this.cars) {
+		RaceResult raceResult = new RaceResult(getName());
+		for (CarMovement car : getCarMovements()) {
 			CarStatus carStatus = car.getStatus();
 			raceResult.report(carStatus);
 		}
-
 		return raceResult;
 	}
 
 	public String getName() {
 		return name;
+	}
+
+	public List<CarMovement> getCarMovements() {
+		return carMovements;
 	}
 }
