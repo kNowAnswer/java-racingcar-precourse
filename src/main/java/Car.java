@@ -6,6 +6,19 @@ public class Car {
 	private final String name;
 	private final List<CarMovement> carMovements;
 
+	public Car(String name, int count) {
+		this.name = name;
+		int[] intArr = new int[count];
+		for (int i = 0; i < count; i++) {
+			intArr[i] = Utils.makeRandomNumber();
+		}
+		List<Integer> list = new ArrayList<>();
+		for (int randomNum : intArr) {
+			list.add(randomNum);
+		}
+		this.carMovements = mapCars(list);
+	}
+
 	public Car(String name, List<Integer> integers) {
 		this.name = name;
 		this.carMovements = mapCars(integers);
