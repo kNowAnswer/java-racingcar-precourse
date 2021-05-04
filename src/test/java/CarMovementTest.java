@@ -8,7 +8,9 @@ public class CarMovementTest {
 	@Test
 	@DisplayName("숫자에 따른 자동차 상태 테스트 - Out of Range")
 	void carStatusOutOfRange() {
-		assertThat(new CarMovement(0, 11).getStatus()).isEqualTo(CarStatus.STOP);
+		Throwable throwable = catchThrowable(() -> new CarMovement(0, 11).getStatus());
+
+		assertThat(throwable).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("0 이상 9 이하만 가능");
 	}
 
 	@Test

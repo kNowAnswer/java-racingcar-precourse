@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 public class RaceResults {
+	private static final String WINNER_MSG = "가 최종 우승했습니다.";
+	private static final String JOIN_DELIMITER = ", ";
 	private int winnerGoCount;
 	private Map<String, RaceResult> raceResults;
 	private List<String> winners;
@@ -35,7 +37,7 @@ public class RaceResults {
 	}
 
 	public void printWinners() {
-		System.out.println(String.join(", ", winners) + "가 최종 우승했습니다.");
+		System.out.println(String.join(JOIN_DELIMITER, winners) + WINNER_MSG);
 	}
 
 	public String printRaceResult() {

@@ -1,6 +1,6 @@
 public class RaceResult {
 
-	private static final String goMark = "-";
+	private static final String GO_MARK = "-";
 	private String name;
 	private int go;
 	private int stop;
@@ -38,7 +38,7 @@ public class RaceResult {
 		sb.append(getName());
 		sb.append(":");
 		for (int i = 0; i < getGoCount(); i++) {
-			sb.append(goMark);
+			sb.append(GO_MARK);
 		}
 		return sb.toString();
 	}
@@ -48,7 +48,7 @@ public class RaceResult {
 		sb.append(getName());
 		sb.append(":");
 		for (int i = 0; i < index; i++) {
-			sb.append(carStatuses.get(i).isGo() ? goMark : "");
+			sb.append(carStatuses.get(i).isGo() ? GO_MARK : "");
 		}
 		return sb.toString();
 	}
